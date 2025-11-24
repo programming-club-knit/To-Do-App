@@ -1,5 +1,5 @@
 const taskInput = document.getElementById('task-input');
-const addBtn = document.getElementById('add-btn'); 
+const addBtn = document.getElementById('add-task-btn'); 
 const taskList = document.getElementById('task-list');
 const themeToggle = document.getElementById('theme-toggle');
 
@@ -16,14 +16,13 @@ function addTask() {
     
     taskList.appendChild(li);
     taskInput.value = '';
+    li.addEventListener('click',(e)=> {
+        if(e.target.classList.contains("delete-btn")){
+            taskList.removeChild(li);
+        }
+    })
 
 }
 
-const deleteBtns = document.querySelectorAll('.delete-btn');
-deleteBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.target.parentElement.remove();
-    });
-});
 
 
